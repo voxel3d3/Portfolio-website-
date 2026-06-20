@@ -1,1 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>VOXEL 3D Portfolio</title>
 
+<style>
+:root {
+    --bg: #000000;
+    --panel: #0f0f0f;
+    --text: #ffffff;
+    --muted: #b5b5b5;
+    --border: #222222;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 60px 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+    font-size: 42px;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+header p {
+    color: var(--muted);
+    margin-top: 10px;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+/* SHOWREEL */
+.showreel {
+    padding: 50px 20px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+}
+
+.showreel h2 {
+    margin-bottom: 20px;
+}
+
+iframe {
+    width: 100%;
+    max-width: 1000px;
+    height: 500px;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.05);
+}
+
+/* PROJECTS */
+.projects {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.projects h2 {
+    margin-bottom: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.card {
+    background: var(--panel);
+    padding: 40px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: #fff;
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px rgba(255,255,255,0.08);
+}
+
+/* CONTACT */
+.contact {
+    text-align: center;
+    padding: 60px 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>VOXEL 3D</h1>
+    <p>3D Artist • VFX • Animation • Motion Graphics</p>
+</header>
+
+<section class="hero">
+    <h2>CREATIVE SHOWCASE</h2>
+    <p>High-end 3D animation and visual storytelling</p>
+</section>
+
+<section class="showreel">
+    <h2>SHOWREEL</h2>
+
+    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+</section>
+
+<section class="projects">
+    <h2>PROJECTS</h2>
+
+    <div class="grid">
+        <div class="card">3D Character Design</div>
+        <div class="card">Environment Design</div>
+        <div class="card">VFX Simulation</div>
+        <div class="card">Motion Graphics</div>
+        <div class="card">Cartoon Animation</div>
+        <div class="card">Product Visualization</div>
+    </div>
+</section>
+
+<section class="contact">
+    <h2>CONTACT</h2>
+    <p>Email: yourmail@gmail.com</p>
+    <p>Instagram: @yourhandle</p>
+</section>
+
+</body>
+</html>
