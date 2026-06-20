@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Environment Design</title>
+
+<style>
+
+body {
+    font-family: Arial;
+    color: #fff;
+    margin: 0;
+
+    background-image: url("environment-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
+    position: relative;
+}
+
+/* DARK OVERLAY */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.78);
+    z-index: 0;
+}
+
+/* CONTENT LAYER */
+header, .grid {
+    position: relative;
+    z-index: 1;
+}
+
+/* ANIMATION */
+header, .grid {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HEADER */
+header {
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 1px solid #222;
+}
+
+h1 {
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* THUMBNAILS */
+.thumb {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid #222;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.thumb:hover {
+    transform: scale(1.03);
+    border-color: #fff;
+}
+
+/* LIGHTBOX */
+#lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+/* BACK BUTTON */
+.back {
+    display: inline-block;
+    margin-top: 20px;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #333;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+.back:hover {
+    border-color: #fff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>ENVIRONMENT DESIGN</h1>
+    <a class="back" href="index.html">← Back to Home</a>
+</header>
+
+<section class="grid" id="gallery"></section>
+
+<div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img">
+</div>
+
+<script>
+
+const images = [
+    "environment/render1.jpg",
+    "environment/render2.jpg",
+    "environment/render3.jpg"
+];
+
+const gallery = document.getElementById("gallery");
+
+images.forEach(src => {
+    const img = document.createElement("img");
+    img.src = src;
+    img.className = "thumb";
+    img.onclick = () => openLightbox(src);
+    gallery.appendChild(img);
+});
+
+function openLightbox(src) {
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = src;
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
