@@ -13,7 +13,11 @@
     --border: #222;
 }
 
-/* RESET */
+/* SMOOTH SCROLL */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -21,10 +25,10 @@ body {
     color: var(--text);
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
     height: 100vh;
-    background-image: url("hero.jpg"); /* your image */
+    background-image: url("hero.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
@@ -45,15 +49,14 @@ body {
     background: rgba(0,0,0,0.65);
 }
 
-/* HERO TEXT */
 .hero-content {
     position: relative;
     z-index: 2;
 }
 
 .hero-content h1 {
-    font-size: 60px;
-    letter-spacing: 4px;
+    font-size: 64px;
+    letter-spacing: 5px;
     margin: 0;
 }
 
@@ -61,14 +64,24 @@ body {
     color: var(--muted);
 }
 
-/* SECTION GENERAL */
+/* SECTIONS */
 .section {
-    padding: 60px 20px;
+    padding: 80px 20px;
     text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+/* when visible */
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 h2 {
     margin-bottom: 20px;
+    letter-spacing: 2px;
 }
 
 /* SHOWREEL */
@@ -76,8 +89,8 @@ iframe {
     width: 100%;
     max-width: 900px;
     height: 500px;
-    border-radius: 12px;
-    box-shadow: 0 0 30px rgba(255,255,255,0.05);
+    border-radius: 14px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.05);
 }
 
 /* PROJECT GRID */
@@ -94,12 +107,13 @@ iframe {
     padding: 40px;
     border: 1px solid var(--border);
     border-radius: 12px;
-    transition: 0.3s;
+    transition: 0.4s;
 }
 
 .card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-10px);
     border-color: #fff;
+    box-shadow: 0 0 30px rgba(255,255,255,0.08);
 }
 
 /* CONTACT */
@@ -120,7 +134,7 @@ iframe {
     </div>
 </section>
 
-<!-- SHOWCASE TEXT -->
+<!-- SHOWCASE -->
 <section class="section">
     <h2>CREATIVE SHOWCASE</h2>
     <p>High-end 3D animation and visual storytelling</p>
@@ -156,6 +170,25 @@ iframe {
     <p>Email: yourmail@gmail.com</p>
     <p>Instagram: @yourhandle</p>
 </section>
+
+<!-- ANIMATION SCRIPT -->
+<script>
+const sections = document.querySelectorAll('.section');
+
+function showSections() {
+    sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        const trigger = window.innerHeight * 0.85;
+
+        if (top < trigger) {
+            sec.classList.add('show');
+        }
+    });
+}
+
+window.addEventListener('scroll', showSections);
+showSections();
+</script>
 
 </body>
 </html>
