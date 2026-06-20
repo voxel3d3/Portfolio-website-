@@ -201,18 +201,33 @@ h1 {
     <a class="back" href="index.html">← Back to Home</a>
 </header>
 
-<section class="grid">
+<script>
+const images = [
+    "renders/render1.jpg",
+    "renders/render2.jpg",
+    "renders/render3.jpg",
+    "renders/render4.jpg",
+    "renders/render5.jpg"
+];
+</script>
 
-    <img src="renders/render1.jpg" class="thumb" onclick="openLightbox(this.src)">
-    <img src="renders/render2.jpg" class="thumb" onclick="openLightbox(this.src)">
-    <img src="renders/render3.jpg" class="thumb" onclick="openLightbox(this.src)">
-    <img src="renders/render4.jpg" class="thumb" onclick="openLightbox(this.src)">
-
-</section>
+<section class="grid" id="gallery"></section>
 
 <div id="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img">
 </div>
+
+<script>
+const gallery = document.getElementById("gallery");
+
+images.forEach(src => {
+    const img = document.createElement("img");
+    img.src = src;
+    img.className = "thumb";
+    img.onclick = () => openLightbox(src);
+    gallery.appendChild(img);
+});
+</script>
 
 <script>
 function openLightbox(src) {
