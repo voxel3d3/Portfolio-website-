@@ -1,3 +1,5 @@
+Character page 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +9,6 @@
 <style>
 
 body {
-    margin: 0;
     font-family: Arial;
     color: #fff;
 
@@ -15,9 +16,12 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-color: #000;
 
-    overflow-x: hidden;
+    min-height: 100vh;
+    min-height: 100dvh; /* modern mobile fix */
 }
+
 
 body::before {
     content: "";
@@ -40,6 +44,13 @@ body::before {
     100% {
         opacity: 0.85;
     }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #000;
 }
 
 header, .grid {
@@ -135,6 +146,14 @@ h1 {
 .back:hover {
     border-color: #fff;
 }
+
+@media (max-width: 768px) {
+    body {
+        min-height: 100dvh;
+        background-attachment: scroll;
+    }
+}
+
 </style>
 
 </head>
