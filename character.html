@@ -114,6 +114,42 @@ h1 {
     margin: auto;
 }
 
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.95);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.1);
+}
+
+.thumb {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid #222;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.thumb:hover {
+    transform: scale(1.03);
+    border-color: #fff;
+    box-shadow: 0 10px 30px rgba(255,255,255,0.08);
+}
+
 .card {
     background: #0f0f0f;
     border: 1px solid #222;
@@ -167,12 +203,28 @@ h1 {
 
 <section class="grid">
 
-    <div class="card">Character Project 1</div>
-    <div class="card">Character Project 2</div>
-    <div class="card">Character Project 3</div>
-    <div class="card">Character Project 4</div>
+    <img src="renders/render1.jpg" class="thumb" onclick="openLightbox(this.src)">
+    <img src="renders/render2.jpg" class="thumb" onclick="openLightbox(this.src)">
+    <img src="renders/render3.jpg" class="thumb" onclick="openLightbox(this.src)">
+    <img src="renders/render4.jpg" class="thumb" onclick="openLightbox(this.src)">
 
 </section>
+
+<div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img">
+</div>
+
+<script>
+function openLightbox(src) {
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = src;
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
 
 </body>
 </html>
