@@ -26,11 +26,13 @@ body {
 }
 
 /* HERO */
+
 .hero {
     height: 100vh;
     background-image: url("hero.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: center center;
+    background-repeat: no-repeat;
     position: relative;
     display: flex;
     align-items: center;
@@ -120,6 +122,24 @@ iframe {
 .contact {
     color: var(--muted);
 }
+
+@media (max-width: 768px) {
+
+    .hero {
+        background-position: center top;
+        height: 90vh;
+    }
+
+    .hero-content h1 {
+        font-size: 38px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+        padding: 0 20px;
+    }
+}
+
 </style>
 
 </head>
