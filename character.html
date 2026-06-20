@@ -9,28 +9,14 @@
 body {
     font-family: Arial;
     color: #fff;
-
-    background-image: url("character-bg.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #000;
-
-    min-height: 100vh;
-    min-height: 100dvh; /* modern mobile fix */
-}
-
-body {
-    font-family: Arial;
-    color: #fff;
-
-    background-image: url("character-bg.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    min-height: 100vh;
     margin: 0;
+
+    background-image: url("character-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
     position: relative;
 }
 
@@ -39,21 +25,27 @@ body::after {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0,0,0,0.78);
     z-index: 0;
 }
 
+/* CONTENT LAYER */
 header, .grid {
     position: relative;
     z-index: 1;
 }
 
-@keyframes darkFade {
-    0% {
+/* ANIMATION */
+header, .grid {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
         opacity: 1;
-    }
-    100% {
-        opacity: 0.85;
+        transform: translateY(0);
     }
 }
 
@@ -192,13 +184,18 @@ h1 {
 </header>
 
 <script>
+
 const images = [
     "renders/render1.jpg",
     "renders/render2.jpg",
     "renders/render3.jpg",
     "renders/render4.jpg",
-    "renders/render5.jpg"
+    "renders/render5.jpg",
+    "renders/render6.jpg",
+    "renders/render7.jpg",
+    "renders/render8.jpg"
 ];
+
 </script>
 
 <section class="grid" id="gallery"></section>
