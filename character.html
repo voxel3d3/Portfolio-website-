@@ -1,5 +1,3 @@
-Character page 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,19 +20,32 @@ body {
     min-height: 100dvh; /* modern mobile fix */
 }
 
+body {
+    font-family: Arial;
+    color: #fff;
 
-body::before {
+    background-image: url("character-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+/* DARK OVERLAY */
+body::after {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    background: rgba(0,0,0,0.85);
+    inset: 0;
+    background: rgba(0,0,0,0.75);
     z-index: 0;
+}
 
-    animation: darkFade 1.2s ease forwards;
+header, .grid {
+    position: relative;
+    z-index: 1;
 }
 
 @keyframes darkFade {
@@ -44,13 +55,6 @@ body::before {
     100% {
         opacity: 0.85;
     }
-}
-
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: #000;
 }
 
 header, .grid {
@@ -76,20 +80,6 @@ header, .grid {
         transform: scale(1) translateY(0);
         filter: blur(0);
     }
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    /* DARK OVERLAY (KEY FIX) */
-    background: rgba(0, 0, 0, 0.85);
-
-    z-index: -1;
 }
 
 /* HEADER */
@@ -207,10 +197,7 @@ const images = [
     "renders/render2.jpg",
     "renders/render3.jpg",
     "renders/render4.jpg",
-    "renders/render5.jpg",
-    "renders/render6.jpg",
-    "renders/render7.jpg",
-    "renders/render8.jpg"
+    "renders/render5.jpg"
 ];
 </script>
 
