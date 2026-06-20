@@ -56,6 +56,16 @@ body {
     z-index: 2;
 }
 
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 90px;
+    z-index: 10;
+    filter: invert(1); /* makes black logo visible on dark backgrounds */
+    opacity: 0.9;
+}
+
 .hero-content h1 {
     font-size: 64px;
     letter-spacing: 5px;
@@ -145,6 +155,8 @@ iframe {
 </head>
 
 <body>
+
+<img src="logo.png" class="logo">
 
 <!-- HERO -->
 <section class="hero">
