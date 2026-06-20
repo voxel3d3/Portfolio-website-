@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>3D Character Design</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #000;
+    color: #fff;
+}
+
+/* HEADER */
+header {
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 1px solid #222;
+}
+
+h1 {
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.card {
+    background: #0f0f0f;
+    border: 1px solid #222;
+    padding: 20px;
+    border-radius: 12px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: #fff;
+    box-shadow: 0 0 20px rgba(255,255,255,0.08);
+}
+
+/* BACK BUTTON */
+.back {
+    display: inline-block;
+    margin-top: 20px;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #333;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+.back:hover {
+    border-color: #fff;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>3D CHARACTER DESIGN</h1>
+    <a class="back" href="index.html">← Back to Home</a>
+</header>
+
+<section class="grid">
+
+    <div class="card">Character Project 1</div>
+    <div class="card">Character Project 2</div>
+    <div class="card">Character Project 3</div>
+    <div class="card">Character Project 4</div>
+
+</section>
+
+</body>
+</html>
