@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cartoon Animation</title>
+
+<style>
+
+body {
+    font-family: Arial;
+    margin: 0;
+    color: white;
+
+    background-image: url("cartoon-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
+    position: relative;
+}
+
+/* DARK OVERLAY */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.78);
+    z-index: 0;
+}
+
+header, .grid {
+    position: relative;
+    z-index: 1;
+}
+
+/* HEADER */
+header {
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 1px solid #222;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* VIDEO CARD */
+.video-card {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.video-card:hover {
+    transform: scale(1.03);
+    border-color: #fff;
+}
+
+/* THUMBNAIL */
+.video-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+/* TITLE */
+.video-title {
+    padding: 12px;
+    font-size: 14px;
+    text-align: center;
+    color: #ccc;
+}
+
+/* LIGHTBOX */
+#lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+#lightbox iframe {
+    width: 90%;
+    height: 80%;
+    border: none;
+}
+
+/* BACK BUTTON */
+.back {
+    display: inline-block;
+    margin-top: 20px;
+    color: white;
+    text-decoration: none;
+    border: 1px solid #333;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+.back:hover {
+    border-color: #fff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>CARTOON ANIMATION</h1>
+    <a class="back" href="index.html">← Back to Home</a>
+</header>
+
+<section class="grid" id="gallery"></section>
+
+<div id="lightbox" onclick="closeLightbox()">
+    <iframe id="videoFrame" allowfullscreen></iframe>
+</div>
+
+<script>
+
+const videos = [
+    {
+        title: "Animation 1",
+        thumb: "https://img.youtube.com/vi/X_qTHmBsCis/maxresdefault.jpg",
+        url: "https://www.youtube.com/embed/X_qTHmBsCis"
+    }
+];
+
+const gallery = document.getElementById("gallery");
+
+videos.forEach(video => {
+    const div = document.createElement("div");
+    div.className = "video-card";
+    div.onclick = () => openVideo(video.url);
+
+    div.innerHTML = `
+        <img src="${video.thumb}">
+        <div class="video-title">${video.title}</div>
+    `;
+
+    gallery.appendChild(div);
+});
+
+function openVideo(url) {
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("videoFrame").src = url;
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+    document.getElementById("videoFrame").src = "";
+}
+
+</script>
+
+</body>
+</html>
